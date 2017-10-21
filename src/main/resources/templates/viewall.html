@@ -6,7 +6,7 @@
     <body>
         <h1>All Students</h1>
         
-    	<div th:each="student,iterationStatus: ${students}">
+    	<div th:each="student,iterationStatus: ${students}" th:class="${iterationStatus.odd}?'odd'">
             <h3 th:text="'No. ' + ${iterationStatus.count}">No. 1</h3>
 	       	<h3 th:text="'NPM = ' + ${student.npm}">Student NPM</h3>
 	       	<h3 th:text="'Name = ' + ${student.name}">Student Name</h3>
@@ -15,9 +15,13 @@
 	       	<ul th:each="course, iterationStatus: ${student.courses}">
 	       		<li th:text="${course.name} + ' - ' + ${course.credits} + ' sks'">Course Name - X SKS</li>
 	       	</ul>
+	       	<h3 th:text="${student.gpa>=3.49}?'Cum Laude!':'Sangat Memuaskan!'"></h3>
 	       	
 	       	<a th:href = "'/student/delete/' + ${student.npm}" > Delete Data </a><br/>
 	       	<a th:href = "'/student/update/' + ${student.npm}" > Update Data </a><br/>
+	       	
+	       	<h3 th:if = "${student.gpa>=3.49}">Cum Laude!</h3>
+	       	<h3 th:unless = "${student.gpa>=3.49}">Sangat Memuaskan!</h3>
 	       	<hr/>
        	</div>
     </body>
