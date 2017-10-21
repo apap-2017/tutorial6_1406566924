@@ -1,16 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<div th:replace="fragments/fragment :: navbar"></div>
-<link rel="stylesheet" href="../css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="../css/dataTables.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="../css/dataTables.bootstrap.min.css" />
-<script type="text/javascript" src="../js/jquery.min.js"></script>
-<script type="text/javascript" src="../js/datatables.min.js"></script>
-<title>View All Students</title>
-</head>
+<head th:replace="fragments/fragment :: header"></head>
 <body>
+	<div th:replace="fragments/fragment :: navbar"></div>
 	<h1>All Students</h1>
 
 	<table id="table">
@@ -42,10 +34,5 @@
 	</table>
 
 </body>
-
-<script>
-	$(document).ready(function() {
-		$('#table').DataTable();
-	});
-</script>
+<footer th:replace="fragments/fragment :: footer"></footer>
 </html>

@@ -1,11 +1,9 @@
 <!DOCTYPE   html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>Index</title>
-</head>
+<head th:replace="fragments/fragment :: header"></head>
 <body>
-	<div th:replace="fragments/fragment :: header"></div>
+	<div th:replace="fragments/fragment :: navbar"></div>
 	<h2>Welcome To Tutorial 6 APAP</h2>
-	<div th:replace="fragments/fragment :: footer"></div>
 </body>
+<footer th:replace="fragments/fragment :: footer"></footer>
 </html>

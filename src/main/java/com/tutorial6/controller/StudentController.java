@@ -69,6 +69,7 @@ public class StudentController {
 	public String view(Model model) {
 		List<StudentModel> students = studentDAO.selectAllStudents();
 		model.addAttribute("students", students);
+		model.addAttribute("title", "View All Student");
 
 		return "viewall";
 	}
@@ -79,7 +80,8 @@ public class StudentController {
 
 		if (student != null) {
 			studentDAO.deleteStudent(npm);
-
+			
+			model.addAttribute("title", "View Student by NPM");
 			return "delete";
 		} else {
 			model.addAttribute("npm", npm);
